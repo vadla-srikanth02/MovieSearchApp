@@ -3,7 +3,10 @@ import "./App.css";
 import MovieCard from "./Components/MovieCard";
 import SearchIcon from "./assets/search.svg";
 
-const API_URL = `http://www.omdbapi.com?apikey=${import.meta.env.VITE_OMDB_API_KEY}`;
+const API_URL = `https://www.omdbapi.com?apikey=${import.meta.env.VITE_OMDB_API_KEY}`;
+console.log("API_KEY:", import.meta.env.VITE_OMDB_API_KEY);
+
+
 
 
 function App() {
@@ -13,7 +16,7 @@ function App() {
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
-    console.log(data)
+
 
     setMovies(data.Search);
     
